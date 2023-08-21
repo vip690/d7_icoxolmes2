@@ -470,11 +470,11 @@ begin
   case v2.Width of
     1..16:
     //with b.Canvas do StretchDraw(cliprect, v2);
-    b900.canvas.Draw(450-v2.Width div 2,328-v2.height,v2);
+    b900.canvas.Draw(220-v2.Width div 2,164-v2.height,v2);
     //b440.canvas.Draw(220-v2.Width div 2,164-v2.height,v2);
     17..440:
     //b440.canvas.Draw(220-v2.Width div 2,164-v2.height div 2,v2);
-    b900.canvas.Draw(450-v2.Width div 2,328-v2.height div 2,v2);
+    b900.canvas.Draw(220-v2.Width div 2,164-v2.height div 2,v2);
     441..99999:
     //jb:=MakeThumbNail(v2,b);
     //if  then begin      end;
@@ -488,7 +488,7 @@ begin
         //showmessage('kp');
         with bxxx.Canvas do StretchDraw(cliprect, v2);
         //b440.canvas.Draw(220-bxxx.Width div 2,164-bxxx.height div 2,bxxx);
-        b900.canvas.Draw(450-bxxx.Width div 2,328-bxxx.height div 2,bxxx);
+        b900.canvas.Draw(220-bxxx.Width div 2,164-bxxx.height div 2,bxxx);
         bxxx.Free;
     end;
   end;//case
@@ -519,7 +519,7 @@ begin
 
 
   //with im.Canvas do StretchDraw(rect(0,0,900,600), b440); //
-  with im.Canvas do StretchDraw(rect(0,0,900,656), b900); //
+  with im.Canvas do StretchDraw(rect(0,0,900,659), b900); //
   //fm.Invalidate;
 
 end;
@@ -1152,7 +1152,7 @@ end;
             else
             //StretchDraw(cliprect, b440);
             //StretchDraw(rect(0,0,900,600), b440);
-            StretchDraw(rect(0,0,900,656), b900);
+            StretchDraw(rect(0,0,900,600), b900);
       pen.Width:=2;
       pen.Color:=clred;
       brush.Style:=bsclear;

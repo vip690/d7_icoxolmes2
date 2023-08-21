@@ -337,11 +337,19 @@ padding:1px;
 ">
 <button id="b23" style="visibility:hidden;">union</button><br>
 <button class="ki" style=""></button>
-
+<label class="ki" 
+style="overflow: hidden;"
+onmousedown="svet(0);">
+<div class="ki"  style="transform: scale(2.7);background-position: left -395px top -310px"></div>
+</label>
+<input class="uni" type="checkbox">
+<div class="meta"></div>
+<div class="kolvo">1</div>
+</label>
 </div>
 
 <div id="barright" style="position:fixed;top:44px;right:118px;
-background-color: black;width:93px; height:670px;a0spect-ratio:1;
+background-color: black;width:93px; height:670px;
 padding:1px;
 ">
 <button onclick="shz(this)"></button><br>
@@ -410,6 +418,7 @@ ben=true;
 g.innerHTML+=`<rect id=ux${w} x=${(yrr[w].x).toFixed(1)} y=${yrr[w].y} width=${(yrr[w].w).toFixed(1)} height=${yrr[w].h} opacity=.2 fill=lime stroke=red onclick=fn(this,this.getAttribute('fill'),${w})></rect>`;
 ">
 <line id="line" x1="0" y1="1" x2="0" y2="2500" stroke="teal" />
+<rect id="ux0" x="398.0" y="318.0" width="11.0" height="18.0" opacity=".2" fill="lime" stroke="red" onclick="fn(this,this.getAttribute('fill'),0)"></rect>
 </svg>
 </button>
 <!--  opacity=.2 fill=lime stroke=red  -->
