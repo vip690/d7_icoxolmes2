@@ -377,8 +377,8 @@ if(r) {r=false; return 0;}
 let xx=event.clientX-bph.offsetLeft;
 let yy=event.clientY-bph.offsetTop;
 
-let hh=18;/// высота знакоместа
-let ww=11;/// ширина знакоместа
+let ww=89;/// ширина знакоместа
+let hh=130;/// высота знакоместа
 
 if (yy>fu1&&yy<fu2&&xx>fx) // попадание в фарватер  
 	{
@@ -666,9 +666,7 @@ function bbgun(){// построение кнопок групп
 	//************
 	//let
 	let hb=bvb.map((i,j)=>
-	'<label class="ki" onmousedown="svet('+j+')" style="'+
-	'transform: scale(1.0);'+
-	'background-position: left -'+
+	'<label class="ki" onmousedown="svet('+j+')" style="background-position: left -'+
 	(yrr[i.a[0]]['x']*kax)+'px top -'+
 	(yrr[i.a[0]]['y']*kay)+'px">\r\n'+
 	'<input class="uni" type="checkbox">\r\n'+

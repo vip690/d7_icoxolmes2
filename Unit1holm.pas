@@ -472,10 +472,11 @@ begin
     //with b.Canvas do StretchDraw(cliprect, v2);
     b900.canvas.Draw(450-v2.Width div 2,328-v2.height,v2);
     //b440.canvas.Draw(220-v2.Width div 2,164-v2.height,v2);
-    17..440:
+    {17..440:
     //b440.canvas.Draw(220-v2.Width div 2,164-v2.height div 2,v2);
     b900.canvas.Draw(450-v2.Width div 2,328-v2.height div 2,v2);
-    441..99999:
+    }
+    17..99999:
     //jb:=MakeThumbNail(v2,b);
     //if  then begin      end;
     begin
@@ -483,8 +484,8 @@ begin
         {
         bxxx.width:=v2.Width;
         bxxx.height:=round(v2.Width*328/440);    }
-        bxxx.width:=440;
-        bxxx.height:=round(440*v2.height/v2.width);
+        bxxx.width:=900;//440;
+        bxxx.height:=round(900*v2.height/v2.width);//bxxx.height:=round(440*v2.height/v2.width);
         //showmessage('kp');
         with bxxx.Canvas do StretchDraw(cliprect, v2);
         //b440.canvas.Draw(220-bxxx.Width div 2,164-bxxx.height div 2,bxxx);
@@ -508,18 +509,18 @@ begin
   v2.Height:=1;
   with fm do
     begin
-      width:=900;
-      height:=600;
+      width:=950;
+      height:=650;
     end;
   with im do
     begin
       width:=900;
-      height:=600;
+      height:=656;//600
     end;
 
 
   //with im.Canvas do StretchDraw(rect(0,0,900,600), b440); //
-  with im.Canvas do StretchDraw(rect(0,0,900,656), b900); //
+  with im.Canvas do StretchDraw(rect(0,0,900,656), b900); //  656
   //fm.Invalidate;
 
 end;
@@ -579,6 +580,8 @@ while not eof(fi) do
     write(fo,b);
   end;
 closefile(fi);
+
+  {
  s:=#$6c#$65#$74#$20#$68#$68#$3d;
  rare(s);
  //s:=#$35#$38;
@@ -592,6 +595,21 @@ closefile(fi);
  rare(s);
  s:=#$3b#$2f#$2f#$2f#$20#$d1#$88#$d0#$b8#$d1#$80#$d0#$b8#$d0#$bd#$d0#$b0#$20#$d0#$b7#$d0#$bd#$d0#$b0#$d0#$ba#$d0#$be#$d0#$bc#$d0#$b5#$d1#$81#$d1#$82#$d0#$b0#$0d#$0a;
  rare(s);
+    }
+
+s:=#$6c#$65#$74#$20#$77#$77#$3d;
+ rare(s);
+ s:=inttostr(charx);
+ rare(s);
+//#$32#$37#$2e#$35
+s:=#$3b#$2f#$2f#$2f#$20#$d1#$88#$d0#$b8#$d1#$80#$d0#$b8#$d0#$bd#$d0#$b0#$20#$d0#$b7#$d0#$bd#$d0#$b0#$d0#$ba#$d0#$be#$d0#$bc#$d0#$b5#$d1#$81#$d1#$82#$d0#$b0#$0d#$0a#$6c#$65#$74#$20#$68#$68#$3d;
+ rare(s);
+ s:=inttostr(chary);
+ rare(s);
+//#$35#$38
+s:=#$3b#$2f#$2f#$2f#$20#$d0#$b2#$d1#$8b#$d1#$81#$d0#$be#$d1#$82#$d0#$b0#$20#$d0#$b7#$d0#$bd#$d0#$b0#$d0#$ba#$d0#$be#$d0#$bc#$d0#$b5#$d1#$81#$d1#$82#$d0#$b0#$0d#$0a;
+ rare(s);
+ 
  {
 let hh=58;//35;    /// ?????? ??????????
 let ww=27.5;//50;//24;  /// ?????? ??????????
@@ -1068,7 +1086,7 @@ begin
         im.canvas.Draw(0,0,vbig)
         else
         //StretchDraw(rect(0,0,900,600), b440);
-        StretchDraw(rect(0,0,900,600), b900);
+        StretchDraw(rect(0,0,900,656), b900);
       pen.Width:=2;
       pen.Color:=clred;
       brush.Style:=bsclear;
