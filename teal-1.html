@@ -10,6 +10,10 @@
 
   <title>otvet.mail.ru/question/234498848</title>
   <style>
+  /*🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸*/
+  /*🐸займись строками помечеными люгушкой 478, 1059 это пиздец🐸*/
+  /*🐸небоскребы не ходят быть нормальной высоты🐸*/
+  /*🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸*/
   /* демо геймплея https://www.youtube.com/watch?v=CJJdfhSjgFA */
 /*
 * Prefixed by https://autoprefixer.github.io/ru/
@@ -39,6 +43,7 @@ body{
 	background-color:#ded
 	} 
 #i{
+	display: none;
 	padding: 33px 0;
 	background: -webkit-gradient(linear, left top, left bottom, from(grey), to(#ded));
 	background: -o-linear-gradient(grey, #ded);
@@ -46,44 +51,51 @@ body{
 	text-align: center;
 	}
 
-
-.ira{
-	position: absolute;
-	cursor: move; 
-	color: white;
+.ivan{
 	display: -ms-grid;
 	display: grid; 
-	place-items:center; 
+	place-items: center; 	
+	width: 25px;	
+	font-size: 16px;
+}
+
+.ira1{
+	position: absolute;
+	cursor: move; 
+	color: white; 
 	-webkit-user-select: none; 
 	-moz-user-select: none; 
 	-ms-user-select: none; 
 	user-select: none;
-	font-size:16px;
-	width:25px; 
 	height: 20px;
     z-index: 9;
-	background: navy;
+	background: #025202;/*green;*/
 	}
-.iba{
-	margin: 0 2px;
-	display: -ms-grid;
-	display: grid; 
-	place-items: center; 
+.ira2{
+	position: absolute;
+	cursor: move; 
+	color: white; 
 	-webkit-user-select: none; 
 	-moz-user-select: none; 
-	-ms-user-select: none; 	
-	width: 25px;	
-	font-size: 16px;
-	color: white;
-	background: navy;
-	cursor: move;
+	-ms-user-select: none; 
 	user-select: none;
-    }	
+	height: 20px;
+    z-index: 10;
+	background: red;/*green;*/
+	}	
+	
+.iba1,.iba2{
+	margin: 0 2px 30px;
+	background: #00000023;
+    }
+
 
 
 .km{margin:2px;
 	display: -ms-grid;
-	display: grid; place-items: center;
+	display: grid; 
+	d0isplay: none;
+	place-items: center;
 	width:43px;  
 	border:4px solid blue;
 	position: fixed; bottom: 0px;
@@ -173,8 +185,18 @@ article{
 	width: fit-content;
 	}
 
-#ty{
-	padding-top: 100px;
+#deep {
+	position: fixed; 
+	bottom: 10px;	
+	width: 100%;
+	height: 444px;	
+	z-index: 5;
+}
+#platr,#plate{
+	padding: 1px 30px 0;
+	position: absolute;
+	top:0; 
+	left: 0;	
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -185,24 +207,21 @@ article{
 	-ms-flex-align: start; 
 	align-items: flex-start;
 	-ms-flex-wrap: wrap;
-	flex-wrap: wrap; 
-	visibility: hidden;
-	position: fixed; 
-	bottom: 10px;
-	width: 100%;
-	height: 444px;
-	background: fuchsia;
-	z-index: 5;
+	flex-wrap: wrap;	
+	width: 100%;	
 	}
+#platr{visibility:hidden}	
+#plate{visibility:hidden}
+
 #fa{
 	width: 100%;
 	height: 444px;
 	background: transparent;
 	position: fixed; 
 	bottom: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: none;/*flex; */
+
+	display: flex; 
+	display: none;	
 	-webkit-box-align: start;
 	-ms-flex-align: start; 
 	align-items: flex-start;
@@ -210,6 +229,7 @@ article{
 	flex-wrap: wrap;
 	z-index:6;
 	}
+#pex{display: none;}	
 
 button{
 	margin: 1px;
@@ -247,6 +267,21 @@ nav{
 	position: absolute; 
 	left: -9999px;
 	}
+#graf{
+	position: fixed;
+	top: 1px; right: 1px;
+	display: grid;
+	display: none;
+	place-items: center;
+	width: 44px; aspect-ratio: 1;
+	background: #ded;
+	border-radius: 20px;
+	font-size: 30px;
+	cursor: pointer;
+	border: 3px solid purple;
+	z-index: 50;
+}
+#graf:hover{transform: scale(1.1)}
 	
 /* proga 2 */
 
@@ -300,10 +335,13 @@ text-align: center;
 <body>
 	<nav id="nav">
 		<button id="btn1" onclick="
-			ir.forEach((x,i)=>{
-				x.style.top=ib[i].offsetTop+'px';
-				x.style.left=ib[i].offsetLeft+'px';});	
-			conny();// вывод деши
+			ir['ru'].forEach((x,i)=>{
+				x.style.top=ib['ru'][i].offsetTop+'px';
+				x.style.left=ib['ru'][i].offsetLeft+'px';});	
+			ir['en'].forEach((x,i)=>{
+				x.style.top=ib['en'][i].offsetTop+'px';
+				x.style.left=ib['en'][i].offsetLeft+'px';});								
+			conny(nom);// вывод деши
 		">reset</button>
 		<button onclick="
 			cop.value=m2.innerText;
@@ -362,7 +400,6 @@ overflow:hidden;
 h0eight:328px;
 background: #23282c;
 b0ackground-image: url(img/pm.png);
-b0ackground-image: url(var(--pict));
 background: var(--pict);	
 background-position: left top;
 background-size: cover;
@@ -376,4 +413,3 @@ onclick="
 if(r) {r=false; return 0;}
 let xx=event.clientX-bph.offsetLeft;
 let yy=event.clientY-bph.offsetTop;
-

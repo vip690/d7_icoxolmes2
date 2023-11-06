@@ -3,10 +3,11 @@ if (yy>fu1&&yy<fu2&&xx>fx) // попадание в фарватер
 	{
 	//if((xx-fx)>15){xx=fx+20.7} // ускорение разметки моноширинных элементов- при клике в конец строки, будут добавляться квадраты шириной 20,7
 	if((xx-fx-5)>ww){xx=fx+ww}
+	//if((xx-fx)>55){xx=fx+50}
+	//console.log(xx-fx);
+	//alert(yy+ ' '+fu1+' '+fu2);
 	yrr.push({x:fx,y:fu1,w:xx-fx,h:fu2-fu1,
-	stroke:'red',opacity:'0.2',fill:'lime',a:' ',
-	left:0,top:0,scale:1.0,
-	});
+	stroke:'red',opacity:'0.2',fill:'lime',a:' ',});
 	fx=xx;
 	fu1=fu1; // каждый щелчек задает новый фарватер
 	fu2=fu2;		
@@ -14,9 +15,7 @@ if (yy>fu1&&yy<fu2&&xx>fx) // попадание в фарватер
 	else
 	{
 	yrr.push({x:xx,y:yy,w:ww,h:hh,
-	stroke:'red',opacity:'0.2',fill:'lime',a:' ',
-	left:0,top:0,scale:1.0,
-	});
+	stroke:'red',opacity:'0.2',fill:'lime',a:' ',});
 	fx=xx+ww;
 	fu1=yy; // каждый щелчек задает новый фарватер
 	fu2=yy+hh;	
@@ -36,7 +35,7 @@ g.innerHTML+=`<rect id=ux${w} x=${(yrr[w].x).toFixed(1)} y=${yrr[w].y} width=${(
 <!--   class=ink1 -->
 
 <div id=i100>
-<button id="btn10" style="margin-right:100px;padding: 4px;border-radius: 4px;font-size: 16px;">do group</button>
+<button id="btn3" style="margin-right:100px;padding: 4px;border-radius: 4px;font-size: 16px;">do group</button>
 <button id="btn2" style="padding: 4px;border-radius: 4px;font-size: 16px;"
 onclick="
 	proga=proga^1^2;
@@ -51,11 +50,25 @@ onclick="
 		fa.style.display='flex';
 		nav.style.display='flex';
 		pro2.style.display='none';
+		
+		
+		i.style.display='block';
+		graf.style.display='grid';
+		fa.style.display='flex';
+		pex.style.display='flex';		
+		
 		}
 	//
+	console.log('jopa');
 	ss=ta1.value;
+	//ss='АБВГ';
+	//АБББВГ';//🐸
+	
+	//ss='ЖУГИГБЙГЁБПСЁВЗНВЗЖЁЖЙЁДТАФДКАБЧАКАБЖ, ЛМАЛДИ, АМБГЛВБШДСЗВОГЗАЙВЕИАЕМЦОВЗП, ОПКРКВЕЕДЛГЕРДНЕЖТАЙЖМЛДРАН. БЕБАГБЁГНХАИЙАЁВОАМВКИ';
 	main(ss);
-	btn1.onclick();
+	
+
+	btn1.onclick();//
 "
 > NEXT 🔻️ </button>
 
@@ -75,12 +88,26 @@ onclick="
 			<div id="m1"></div>
 			<div id="m2"></div>
 		</article>
-		<div id="ty"></div>
+		<div id="deep">
+			<div id="platr" style="background: fuchsia;	"></div>
+			<div id="plate"	style="background: purple;	"></div>		
+		</div>
 	</div>
 	<form id="fa"></form>
-	<p></p>	
+	<p id="pex"></p>	
+	
+<div id="graf" onclick="
+	dataru=!dataru;
+	nom=['en','ru'][+dataru];// имя алфавита
+	this.innerText=nom;
+	ir[nom].forEach(x=>{x.style.visibility='visible'});
+	ir[['en','ru'][+!dataru]].forEach(x=>{x.style.visibility='hidden'});
+
+	conny(nom);
+">ru</div>	
 
 <script>
+
 'use strict';
 //*******************************************************************
 //*******************************************************************
@@ -115,7 +142,7 @@ function fn(x,y,z)
 	q=z;//
 	}
 
-btn10.addEventListener('click',()=>{
+btn3.addEventListener('click',()=>{
 	let m=[];
 	/*let a7=[...document.querySelectorAll('[id^="ux"]')];
 
@@ -383,7 +410,7 @@ function fx_wat(){// слежка за fx
 			break;
 		}
 		case 32: //space
-		btn10.click();
+		btn3.click();
 		
 		default: break;
 	  }
@@ -412,39 +439,56 @@ a.forEach((y,i)=>{if(y.checked){bvb[i].s=x.innerText;  }});// alert(bvb);
 bbgun();
 
 }	
-//**************************
-
-//*******************************************************************
-//*******************************************************************
-//*******************************************************************
+//**********************************************
+//**███*█*█*███*****███**█***█**██**************
+//***█**█*█*█********█***█***█*█**█*************
+//***█**███*███******█***█*█*█*█**█*************
+//***█**█*█*█********█***█*█*█*█**█*************
+//***█**█*█*███******█****█*█***██**************
+//**********************************************
 /*обьединил обе программы в одну */
 var proga=2;
+/*
+i.style.display='block';
+graf.style.display='grid';
+fa.style.display='flex';
+pex.style.display='flex';
+*/
 var ir,ib;
 let ws;// коорды размеры башен
 
+
+var dataru=1;
+var droba=false; // слова более 35 букв дробить на мелкие
+
+
+let ef='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+let nom='ru';
+
+const z=
+[{
       //  А  Б  В  Г  Д  Е  Ё  Ж  З  И  Й  К  Л  М  Н  О  П  Р 
-const fqru=[21,7 ,14,4 ,9 ,34,0 ,4 ,12,21,11,11,12,16,35,38,8 ,12,
+	  fq:[21,7 ,14,4 ,9 ,34,0 ,4 ,12,21,11,11,12,16,35,38,8 ,12,
 		//  С  Т  У  Ф  Х  Ц  Ч  Ш  Щ  Ъ  Ы  Ь  Э  Ю  Я  _
-			18,19,8 ,2 ,5 ,1 ,4 ,3 ,2 ,0 ,13,3 ,0 ,0 ,11,45];
-			
-//A82B15C28D43E127F22G20H61I70J2K8L40M24N68O75P19Q1R60S63T91U28V10W24X2Y20Z1			
-		// A   B   C   D   E   F   G   H   I   J   K   L   M
-const fqen=[ 82, 15, 28, 43,127, 22, 20, 61, 70,  2,  8, 40, 24, 
+			18,19,8 ,2 ,5 ,1 ,4 ,3 ,2 ,0 ,13,3 ,0 ,0 ,11,45],
+ af:[...'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'],
+ qf:[...'ОНЕАИТСМВЫЛЗРЙКЯДПУБХГЖЧЬШФЩЦЮЭЪЁ'],
+},
 
-		//  N   O   P   Q   R   S   T   U   V   W   X   Y   Z
-			68, 75, 19,  1, 60, 63, 91, 28, 10, 24,  2, 20,  1];	
-let fq=fqen;
-		
-const ef='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+{
+	// A   B   C   D   E   F   G   H   I   J   K   L   M
+  fq:[ 82, 15, 28, 43,127, 22, 20, 61, 70,  2,  8, 40, 24, 
 
-const af=[...'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'];
-const qf=[...'ОНЕАИТСМВЫЛЗРЙКЯДПУБХГЖЧЬШФЩЦЮЭЪЁ'];
+	//  N   O   P   Q   R   S   T   U   V   W   X   Y   Z
+		68, 75, 19,  1, 60, 63, 91, 28, 10, 24,  2, 20,  1],	
+ af:[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'],
+ qf:[...'ETAOINSHRDLCUMWFGYPBVKJXQZ'],
+},
 
-const afru=[...'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'];
-/*
-const af=[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-const qf=[...'ETAOINSHRDLCUMWFGYPBVKJXQZ'];
-*/
+];
+
+
+
 
 let f;
 let o; // обьект
@@ -452,13 +496,6 @@ let p;// множество для алфавита шифротекста
 let hu,hi;
 let t=[];// abcd
 let s1;
-
-ty.innerHTML=qf.map((x,i)=>
-	{
-	//alert(((fq[af.indexOf(x)])/60+21)+'px;">');
-	return '<div class="iba" style="height:'+
-	(fq[af.indexOf(x)]/4+21)+ // делю частоту на 4 а то слишком высокие английские столбы
-	'px;">'+x+'</div>'}).join('');
 
 
 
@@ -494,44 +531,60 @@ function dragElement(ass) {//Make the DIV element draggagle:
 		/* stop moving when mouse button is released:*/
 		document.onmouseup = null;
 		document.onmousemove = null;
-		[...ir].forEach((x,i)=>{localStorage.setItem(`myXCat211${i}`,x.offsetLeft)});
-		[...ir].forEach((x,i)=>{localStorage.setItem(`myYCat211${i}`,x.offsetTop)});
-		conny();// вывод деши
+		conny(nom);// вывод деши
 		}
 }
 
 
 /*
 const ss='И ФЭПЭ ШИЩРЮСЩЬД ЦПСЮЖЮ. ПЦСДЧЩЭ, ЖБЫРСХЭ, ЖЮЖ АЭСГХЭ ЮОБЦЬГЮГХ. Щ ЬЮБЮК, ЖЦГЦБХК ЖЮЛЮСЬН Ь ЛЭТСЩ ЦМЭФД ЦПХЖФЦИЭФФХТ, ВСХС ФЮИЬГБЭМЫ ЦПСЮЖЮТ, ПЫШГЦ ВЦШФНГХК И ФЭПЦ ЖЦБЮПСД. Ю ШИЦБ ФЮВЦТЩФЮС ВЦИЭБУФЦЬГД ВСЮФЭГХ, ЫИЩШЭФФЫЯ Ь ЖЦЬТЩМЭЬЖЦК ИХЬЦГХ. ЦЬГБЦИЖЩ ВХСДФЦК ГБЮИХ, ВЭБЭЬХВЮФФЦК ЬЭШХТЩ ЧЮБЩЖЮТЩ ЦШЫИЮФМЩЖЦИ, ПХСЩ ВЦУЦАЩ ФЮ ЛЭСЭФХК ЮБУЩВЭСЮР, Ю ШЦАШЭИЮН ИЦШЮ И ПЦМЖЭ Ы ЬЮБЮН, ЬСЦИФЦ ЖБЫРСЦЭ ЦЛЭБЦ И ЦГИЭЬФХУ ПЭБЭРЮУ, ЬИЭГЩСЦЬД РЦСЫПЦК ЬЩФЭИЦК. ТЮСДМЩЖ СЯПЩС ИЬЭТЫ ФЮ ЬИЭГЭ ШЮИЮГД ЩТЭФЮ Щ ФЮЛИЮФЩН. ЦФЩ ИЬЭРШЮ ВБЩШЫТХИЮСЩЬД ЬБЮЛЫ. ЛЭБЖЮСДЕЭ ИЦШХ И ПЦМЖЭ ЦФ ФЮЛИЮС ЦЛЭБЦТ ЬЩФЭРЦ ЬИЭГЮ, Ю ВНГФЮ ГБЮИХ ЮБУЩВЭСЮРЦТ ФЭЩЛИЭШЮФФХУ СЭЬЦИ.';
-*/
-/*
-const ss='НЕГИ ВЛА БНВ ЖЕКОВГБ ФБДУАЕЙА ЁЕА ЕФЙЛДБС ВГ ЖЕКОВГБ ЁЖЁЗАИК НГЕ БАП ТБГПМАЗСА ДБ ВЛА ПГЕМЗ ГН РМГЖТЖЛЁДБ ВАЖЛБГМГСДАЙ! "ЁБ ДБУАЙВИАБВ ДБ ТБГПМАЗСА ЁМПЁКЙ ОЁКЙ ВЛА РАЙВ ДБВАЕАЙВ."  РАБХЁИДБ Н.  МДИДВАЗ АЗДВДГБ ГН БНВ  "ЖЕКОВГБ ЁЖЁЗАИК - ДБУАЙВИАБВ ДБ ТБГПМАЗСА"  (ЧШЦ ДБ ВГВЁМ),  ПЛДЖЛ ПАЕА ГРВЁДБАЗ РК ВЛА НДЕЙВ ИАИРАЕЙ ГН ВЛА ОЕДУЁВА ЖЕКОВГБ ЁЖЁЗАИК ОЕГХАЖВ. ЗДЙЖГЕЗ ЖЕКОВГБ - ЖИЗ: !ЕАЗЕГГИ';
 
 main(ss);
 */
-let ss;// шифротекст
 
 
 function main(ss){
-fa.innerHTML=qf.map((x,i)=>
-	{return '<div class="ira" style="height:'+
-	(fq[af.indexOf(x)]/4+21)+
+platr.innerHTML=z[0]['qf'].map((x,i)=>
+	{return '<div class="ivan iba1" style="height:'+
+	(z[0]['fq'][z[0]['af'].indexOf(x)]+21)+
 	'px;">'+x+'</div>'}).join('');
 
-//p=new Set([...ss].filter(x=>af.indexOf(x)>-1));
-p=new Set([...ss].filter(x=>afru.includes(x)));
+plate.innerHTML=z[1]['qf'].map((x,i)=>
+	{return '<div class="ivan iba2" style="height:'+
+	(z[1]['fq'][z[1]['af'].indexOf(x)]/3+21)+
+	'px;">'+x+'</div>'}).join('');
 
+
+
+fa.innerHTML=[
+		'<div class="ru">'+
+		z[0]['qf'].map((x,i)=>
+			{return '<div class="ivan ira1" style="height:'+
+			(z[0]['fq'][z[0]['af'].indexOf(x)]+21)+
+			'px;'+
+			'">'+x+'</div>'}).join('')+'</div>',
+		'<div class="en">'+	
+		z[1]['qf'].map((x,i)=>
+			{return '<div class="ivan ira2" style="height:'+
+			(z[1]['fq'][z[1]['af'].indexOf(x)]/3+21)+
+			'px;visibility:hidden'+
+			'">'+x+'</div>'}).join('')+'</div>',		
+	].join('');
+/*
+fa.innerHTML=z[0]['qf'].map((x,i)=>
+	{return '<div class="ivan ira1" style="height:'+
+	(z[0]['fq'][z[0]['af'].indexOf(x)]+21)+
+	'px;">'+x+'</div>'}).join('');
+*/
+p=new Set([...ss].filter(x=>z[0]['af'].indexOf(x)>-1));
 const d=Array.from(p).join('');//горд
-
-
-
-const q=[...ss].filter(x=>afru.includes(x))//afru.indexOf(x)>-1)// частота
+const q=[...ss].filter(x=>z[0]['af'].indexOf(x)>-1)// частота
 	.reduce((a,x)=>{a[x]=~~a[x]+1;return a},{})
-const c=[...afru].filter(i=>i in q).sort((a,b)=>q[b]-q[a]).map(i=>q[i]-1);//21,14,13
-
-const qa=[...afru].filter(i=>i in q).sort((a,b)=>q[b]-q[a]).join('');//отеиc
-s1=[...ss].map(x=>(qa.includes(x))?ef[qa.indexOf(x)]:x).join('');
-//alert(qa); qa.indexOf(x)>-1
+let c=z[0]['af'].filter(i=>i in q).sort((a,b)=>q[b]-q[a]).map(i=>q[i]-1);//21,14,13
+const qa=z[0]['af'].filter(i=>i in q).sort((a,b)=>q[b]-q[a]).join('');//отеиc
+//s1=[...ss].map(x=>(qa.indexOf(x)>-1)?z[0]['ef'][qa.indexOf(x)]:x).join('');
+s1=[...ss].map(x=>(qa.indexOf(x)>-1)?ef[qa.indexOf(x)]:x).join('');
+//s1=[...ss].map(x=>(qa.indexOf(x)>-1)?ef[qa.indexOf(x)]:x).join('');
 //********************************************
 
 const booa=[...ef].map(x=>{/// однобукыенные слова
@@ -547,18 +600,17 @@ const boob=[...ef].map(x=>{/// удвойенные буквы
 let sot=new Set();// ТИПА ключ шифрования замены
 let key=[];
 [...ss].forEach(x=>{
-	if((af.indexOf(x)>-1)&&!sot.has(x))key.push(x); 
+	if((z[0]['af'].indexOf(x)>-1)&&!sot.has(x))key.push(x); 
 	sot.add(x)
 });
-key=key.concat(af.filter(x=>!sot.has(x)));
+key=key.concat(z[0]['af'].filter(x=>!sot.has(x)));
 
 
 //***************************************
 t=[];
+//for (let i=0; i<d.length; i++){t.push(z[0]['ef'][i])}
 for (let i=0; i<d.length; i++){t.push(ef[i])}
 t=t.join('');
-	
-	
 	
 let iq4=[...t].map((x,i)=>//аддитивное обьединение двух колод - небоскребы и буквы
 '<fieldset class="km'+
@@ -566,27 +618,50 @@ let iq4=[...t].map((x,i)=>//аддитивное обьединение двух
 `${(boob[i])?' b':''}`+ // горизонтальн штрих
 	'" style="left:'+(i*46)+'px">'+x+'</fieldset>').join('');	
 fa.innerHTML+=iq4;
-ir=[...document.querySelectorAll('.ira')];// подвижные элементы
-ib=[...document.querySelectorAll('.iba')];// неподвижные элементы         
-ir.forEach((x,i)=>{x.style.left = (localStorage.getItem(`myXCat211${i}`)||ib[i].offsetLeft)+'px';});
-ir.forEach((x,i)=>{x.style.top = (localStorage.getItem(`myYCat211${i}`)||1)+'px';});
-af.forEach((x,i)=>{dragElement(ir[i])});
+//*************************
+ir={
+	ru:[...document.querySelectorAll('.ira1')],
+	en:[...document.querySelectorAll('.ira2')],
+};// подвижные элементы
+ib={
+	ru:[...document.querySelectorAll('.iba1')],
+	en:[...document.querySelectorAll('.iba2')],
+};// неподвижные элементы         
+ir['ru'].forEach((x,i)=>{
+	x.style.left = ib['ru'][i].offsetLeft+'px';
+	x.style.top = ib['ru'][i].offsetTop+'px';
+	});
+ir['en'].forEach((x,i)=>{
+	x.style.left = ib['en'][i].offsetLeft+'px';
+	x.style.top = ib['en'][i].offsetTop+'px';
+	});	
+	
+
+z[0]['af'].forEach((x,i)=>{dragElement(ir['ru'][i])});
+z[1]['af'].forEach((x,i)=>{dragElement(ir['en'][i])});
 //*****************************
 
 hu=document.querySelectorAll('.km');
-/*// проверить что есть здания разной высоты, иначе схлопнется
-//if (c.every(i=>i===c[0])) 
-//alert(c);
-hi=c.map((x,i)=>`${43+((c[i]*400/c[0])|0)}px`);
-//alert(hi);
+//c=c.map(x=>(!x)?1:x);//избавиться от нулей
+/*
+console.log(c);////🐸
+
+let kit;
+//c.forEach((x,i)=>kit=(!i)&&(!x));//
+kit=(!c[0]);
+console.log(kit);
+c.forEach((x,i)=>{console.log(x)});//
+hi=(!kit)?c.map((x,i)=>`${43+c[i]*400/c[0]|0}px`):c.map(x=>'223px');
+//hi=c.map((x,i)=>`${43+c[i]*400/c[0]|0}px`);
+console.log(hi);
 */
-//version 14
+//version 14 file:///C:/Users/and/Documents/GitHub/js_zamena/simply14.html
 //if(false)
 if(true)
 {
 //c=c.map(x=>(!x)?1:x);//избавление от нулей
 let kin=false;
-//c=c.map((x,i)=>kit=(!i)&&(!x));
+//c=c.map((x,i)=>kin=(!i)&&(!x));
 if(c.length){kin=c[0]>0}
 hi=(kin)?c.map((x,i)=>`${43+c[i]*400/c[0]|0}px`):c.map(x=>'223px');
 }
@@ -598,8 +673,8 @@ hi=c.map((x,i)=>`${43+c[i]*400/c[0]|0}px`);
 }
 
 
-
 [...hu].forEach((x,i)=>{x.style.height=hi[i]});// высота небоскребов
+
 const sit=()=>{
 	ws=[...hu].map(x=>{return {// коорды посадочных мест
 		x1:x.offsetLeft,
@@ -607,18 +682,31 @@ const sit=()=>{
 		y1:x.offsetTop,
 		y2:x.offsetTop+x.offsetHeight
 	}});
+	ir['ru'].forEach((x,i)=>{
+		x.style.left = ib['ru'][i].offsetLeft+'px';
+		x.style.top = ib['ru'][i].offsetTop+'px';
+		});
+	ir['en'].forEach((x,i)=>{
+		x.style.left = ib['en'][i].offsetLeft+'px';
+		x.style.top = ib['en'][i].offsetTop+'px';
+		});	
 }
 
 sit();// пересчет коорд посадок
-conny();// вывод деши
-
-window.onresize=()=>{sit()}
+conny('ru');// вывод деши
+conny('en');// вывод деши
+window.onresize=()=>{
+	sit();
+	conny(nom);// вывод деши
+}
 //*******************
 }// end main
 
-function conny(){// вывод деши
+
+
+function conny(pok){// вывод деши
 	o=[...t].reduce((a,x)=>{a[x]='.'; return a},{});
-	[...ir].forEach((x,i)=>{
+	[...ir[pok]].forEach((x,i)=>{//'ru' 'en'
 		let v=x.offsetLeft+ 12;
 		let w=x.getBoundingClientRect().top+20;
 		let b=x.innerText;
@@ -631,6 +719,8 @@ function conny(){// вывод деши
 	m2.innerHTML=[...s1].map(x=>(x in o)?o[x]:x).join('');
 	m3.innerHTML=m2.innerHTML;
 }
+ // document.addEventListener("DOMContentLoaded", ()=>{alert('Не рыпайся. Жми сразу [ NEXT 🔻️ ]')});
+
 </script>   
 </body>
 </html>
