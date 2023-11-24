@@ -260,18 +260,6 @@ if(a2.length!==1) return;
 let a3=document.querySelector('label.ki:has(.uni:checked)');
 a=[...document.querySelectorAll('label.ki')];
 let del;
-a.forEach((x,i)=>{if(x.querySelector('.uni').checked){del=i; bb[i].forEach(y=>
-	{
-	let e=document.getElementById('ux'+y);
-	e.setAttribute('opacity','.2');
-	e.setAttribute('fill','lime');
-	e.setAttribute('stroke','red');
-	e.classList.remove('ink1');
-	}
-)}});
-bb=bb.filter((x,i)=>i!==del);
-//************
- del;
 a.forEach((x,i)=>{if(x.querySelector('.uni').checked){del=i; bvb[i].a.forEach(y=>
 	{
 	let e=document.getElementById('ux'+y);
@@ -282,7 +270,19 @@ a.forEach((x,i)=>{if(x.querySelector('.uni').checked){del=i; bvb[i].a.forEach(y=
 	}
 )}});
 bvb=bvb.filter((x,i)=>i!==del);
-
+//************
+/* del;
+a.forEach((x,i)=>{if(x.querySelector('.uni').checked){del=i; bvb[i].a.forEach(y=>
+	{
+	let e=document.getElementById('ux'+y);
+	e.setAttribute('opacity','.2');
+	e.setAttribute('fill','lime');
+	e.setAttribute('stroke','red');
+	e.classList.remove('ink1');
+	}
+)}});
+bvb=bvb.filter((x,i)=>i!==del);
+*/
 //********
 //alert(bb+'   '+del);
 bbgun();// построение кнопок групп
