@@ -36,6 +36,7 @@ type
     base641: TMenuItem;
     ico1: TMenuItem;
     gif1: TMenuItem;
+    Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -56,6 +57,7 @@ type
     procedure ico1Click(Sender: TObject);
     procedure gif1Click(Sender: TObject);
     procedure png1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1604,6 +1606,11 @@ end;
 procedure TForm1.png1Click(Sender: TObject);
 begin
   showmessage('error');
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+close;
 end;
 
 initialization

@@ -104,4 +104,10 @@ object Form1: TForm1
     Left = 128
     Top = 48
   end
+  object Timer1: TTimer
+    Interval = 100
+    OnTimer = Timer1Timer
+    Left = 232
+    Top = 312
+  end
 end
