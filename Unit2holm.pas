@@ -641,7 +641,9 @@ var f: file of byte;
     bmv: tbitmap; hh: tbitmap;
     ff: file of byte;
     vz: tbitmap;
-begin
+begin    //StringReplace(d,'=',' ',[rfReplaceAll,rfIgnoreCase])
+
+
 {
 if  dexists('K:\!\projAll\zzzz\pisa\') then showmessage('exists');
 if  dexists('K:/!/projAll/zzzz/pisa/') then showmessage('exists');    }
@@ -793,8 +795,16 @@ if dexists(s) then
   //ShellExecute(Application.Handle, 'open', 'file:///C:/Users/Andrew/Desktop/%D0%B1%D0%BB%D0%B5%D0%BD%D0%B4%D0%B5%D1%803%D0%B4.html',nil,nil,SW_SHOWNORMAL);
 
 
-  ShellExecute(Application.Handle, 'open', 'file:///C:/Users/Andrew/Documents/GitHub/d7_icoxolmes2/out.html',nil,nil,SW_SHOWNORMAL);
+  //ShellExecute(Application.Handle, 'open', 'file:///C:/Users/Andrew/Documents/GitHub/d7_icoxolmes2/out.html',nil,nil,SW_SHOWNORMAL);
    //file:///C:/Users/Andrew/Documents/GitHub/d7_icoxolmes2/out.html
+
+ //showmessage(  StringReplace(extractfilepath(paramstr(0))+'out.html','\','/',[rfReplaceAll]));
+ShellExecute(Application.Handle, 'open',
+ pchar('file:///'+StringReplace(extractfilepath(paramstr(0))+'out.html',
+ '\','/',[rfReplaceAll])),nil,nil,SW_SHOWNORMAL);
+
+ //showmessage(  extractfilepath(paramstr(0))+'out.html');
+//showmessage(  extractfilepath(paramstr(0)));
 end;
 
 procedure TForm1.Image1MouseDown(Sender: TObject; Button: TMouseButton;
