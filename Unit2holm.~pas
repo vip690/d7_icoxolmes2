@@ -1,4 +1,4 @@
-unit Unit1holm;
+unit Unit2holm;
 {
  создает файлы иконки, base64 bmp
   my.ico
@@ -8,7 +8,7 @@ unit Unit1holm;
   }
 interface
 
-uses   Clipbrd ,   math,   ShlObj,  FileCtrl,
+uses   Clipbrd ,   math,   ShlObj,  FileCtrl,    shellapi,
 
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Menus, ComCtrls;
@@ -787,6 +787,11 @@ if dexists(s) then
   filer;
 
   vw;
+
+  //ShellExecute(Application.Handle, 'open', 'http://google.ru',nil,nil,SW_SHOWNORMAL);
+
+  //ShellExecute(Application.Handle, 'open', 'file:///C:/Users/Andrew/Desktop/%D0%B1%D0%BB%D0%B5%D0%BD%D0%B4%D0%B5%D1%803%D0%B4.html',nil,nil,SW_SHOWNORMAL);
+                
 end;
 
 procedure TForm1.Image1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -1197,7 +1202,7 @@ var
 begin 
   iLen := Length(FileList) + 2; 
   FileList := FileList + #0#0; 
-  hGlobal := GlobalAlloc(GMEM_SHARE or GMEM_MOVEABLE or GMEM_ZEROINIT, 
+  hGlobal := GlobalAlloc(GMEM_SHARE or GMEM_MOVEABLE or GMEM_ZEROINIT,
     SizeOf(TDropFiles) + iLen); 
   if (hGlobal = 0) then raise Exception.Create('Could not allocate memory.'); 
   begin 

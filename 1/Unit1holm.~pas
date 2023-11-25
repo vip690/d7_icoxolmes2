@@ -8,7 +8,7 @@ unit Unit1holm;
   }
 interface
 
-uses   Clipbrd ,   math,   ShlObj,  FileCtrl,
+uses   Clipbrd ,   math,   ShlObj,  FileCtrl,    shellapi,
 
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Menus, ComCtrls;
@@ -36,6 +36,7 @@ type
     base641: TMenuItem;
     ico1: TMenuItem;
     gif1: TMenuItem;
+    Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -56,6 +57,7 @@ type
     procedure ico1Click(Sender: TObject);
     procedure gif1Click(Sender: TObject);
     procedure png1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -603,6 +605,7 @@ s:=#$6c#$65#$74#$20#$77#$77#$3d;
  rare(s);
 //#$32#$37#$2e#$35
 s:=#$3b#$2f#$2f#$2f#$20#$d1#$88#$d0#$b8#$d1#$80#$d0#$b8#$d0#$bd#$d0#$b0#$20#$d0#$b7#$d0#$bd#$d0#$b0#$d0#$ba#$d0#$be#$d0#$bc#$d0#$b5#$d1#$81#$d1#$82#$d0#$b0#$0d#$0a#$6c#$65#$74#$20#$68#$68#$3d;
+ rare(s);
  s:=inttostr(chary);
  rare(s);
 //#$35#$38
@@ -784,6 +787,11 @@ if dexists(s) then
   filer;
 
   vw;
+
+  //ShellExecute(Application.Handle, 'open', 'http://google.ru',nil,nil,SW_SHOWNORMAL);
+
+  ShellExecute(Application.Handle, 'open', 'file:///C:/Users/Andrew/Desktop/%D0%B1%D0%BB%D0%B5%D0%BD%D0%B4%D0%B5%D1%803%D0%B4.html',nil,nil,SW_SHOWNORMAL);
+                
 end;
 
 procedure TForm1.Image1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -1194,7 +1202,7 @@ var
 begin 
   iLen := Length(FileList) + 2; 
   FileList := FileList + #0#0; 
-  hGlobal := GlobalAlloc(GMEM_SHARE or GMEM_MOVEABLE or GMEM_ZEROINIT, 
+  hGlobal := GlobalAlloc(GMEM_SHARE or GMEM_MOVEABLE or GMEM_ZEROINIT,
     SizeOf(TDropFiles) + iLen); 
   if (hGlobal = 0) then raise Exception.Create('Could not allocate memory.'); 
   begin 
@@ -1603,6 +1611,11 @@ end;
 procedure TForm1.png1Click(Sender: TObject);
 begin
   showmessage('error');
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+close;
 end;
 
 initialization
